@@ -1,0 +1,176 @@
+/* 基本排版 ---------------------------------------------------------- */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  margin: 40px;
+  color: #333;
+}
+
+h1 {
+  font-size: 40px;
+  margin-bottom: 4px;
+}
+
+#page-desc {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+/* Slider + 时间 ----------------------------------------------------- */
+#time-slider-container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 10px 0 30px 0;
+}
+
+#time-slider-container label {
+  font-size: 14px;
+}
+
+#commit-progress {
+  flex: 1;
+}
+
+#commit-time {
+  margin-left: auto;
+  font-size: 14px;
+  color: #444;
+}
+
+/* Summary stats ----------------------------------------------------- */
+#stats {
+  margin-top: 10px;
+  margin-bottom: 24px;
+}
+
+#stats dl.stats {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  column-gap: 32px;
+  row-gap: 4px;
+}
+
+#stats dt {
+  font-size: 11px;
+  color: #777;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+#stats dd {
+  font-size: 20px;
+  margin: 0;
+  font-weight: 600;
+}
+
+/* Scrolly 布局 ------------------------------------------------------ */
+#scrolly-1 {
+  position: relative;
+  display: flex;
+  gap: 1.5rem;
+}
+
+#scrolly-1 > * {
+  flex: 1;
+}
+
+#scatter-story {
+  position: relative;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* 每个 step 占差不多一屏，滚动感更强 */
+#scatter-story .step {
+  margin-bottom: 40vh;
+}
+
+/* 右侧 scatterplot 区域固定在视口内 */
+#scatter-plot {
+  position: sticky;
+  top: 40px;   /* 离顶部一点空间 */
+  height: 60vh;
+}
+
+/* Chart ------------------------------------------------------------- */
+#chart {
+  margin-top: 20px;
+}
+
+/* 自适应缩放的 svg，整体比默认缩小一些 */
+#chart svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* circle 动画 & hover ------------------------------------------------ */
+circle {
+  fill: steelblue;
+  fill-opacity: 0.7;
+  transition: cx 300ms, cy 300ms, r 400ms;
+}
+
+circle:hover {
+  fill-opacity: 1;
+}
+
+/* 新 circle 出现时从 r=0 动画放大 */
+@starting-style {
+  circle {
+    r: 0;
+  }
+}
+
+/* gridlines 稍微淡一点 */
+.gridlines line {
+  stroke: #ddd;
+  stroke-width: 1;
+}
+
+/* Step 2: 文件 unit visualization ----------------------------------- */
+
+#files {
+  margin-top: 40px;
+}
+
+/* 每个文件一行：左边文件名+行数，右边很多小点 */
+#files > div.file-row {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  column-gap: 16px;
+  align-items: flex-start;
+  margin-bottom: 10px;
+}
+
+#files dt {
+  margin: 0;
+  font-family: "SF Mono", Menlo, Consolas, monospace;
+  font-size: 12px;
+}
+
+#files dt small {
+  display: block;
+  font-size: 11px;
+  color: #777;
+  margin-top: 2px;
+}
+
+#files dd {
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  align-content: flex-start;
+  gap: 0.15em;
+  padding-top: 0.3em;
+}
+
+/* 每一行代码对应一个小圆点 */
+.loc {
+  width: 0.45em;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: var(--color, steelblue);
+}
+

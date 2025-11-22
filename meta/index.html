@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Meta – Lab 8</title>
+    <link rel="stylesheet" href="meta.css" />
+  </head>
+
+  <body>
+    <h1>Meta</h1>
+    <p id="page-desc">This page includes stats about the code of this website.</p>
+
+    <!-- 时间 slider -->
+    <div id="time-slider-container">
+      <label for="commit-progress">Show commits until:</label>
+      <input
+        id="commit-progress"
+        type="range"
+        min="0"
+        max="100"
+        value="100"
+      />
+      <time id="commit-time"></time>
+    </div>
+
+    <!-- Scrollytelling：左文本右图表 -->
+    <div id="scrolly-1">
+      <!-- 左侧：故事文字（每个 commit 一段） -->
+      <div id="scatter-story"></div>
+
+      <!-- 右侧：summary stats + scatterplot -->
+      <div id="scatter-plot">
+        <div id="stats"></div>
+        <div id="chart"></div>
+      </div>
+    </div>
+
+    <!-- Step 2：文件 unit visualization -->
+    <dl id="files"></dl>
+
+    <!-- 主脚本：用 ES module 方式引入 -->
+    <script type="module" src="meta.js"></script>
+  </body>
+</html>
